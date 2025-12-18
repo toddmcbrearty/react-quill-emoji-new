@@ -1,0 +1,69 @@
+{
+  "name": "react-quill-emoji-new",
+  "private": true,
+  "version": "0.0.10",
+  "description": "React Quill Extension for Emoji Selection. Forked from react-quill-emoji",
+  "main": "dist/quill-emoji.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "emoji-data-css": "^1.0.1",
+    "fuse.js": "^7.1.0"
+  },
+  "devDependencies": {
+    "vite": "npm:rolldown-vite@7.2.5"
+  },
+  "pnpm": {
+    "overrides": {
+      "vite": "npm:rolldown-vite@7.2.5"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toddmcbrearty/react-quill-emoji"
+  },
+  "keywords": [
+    "content",
+    "emoji",
+    "quill",
+    "editor"
+  ],
+  "peerDependencies": {
+    "quill": "^2.0.3"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "impliedStrict": true
+      }
+    },
+    "rules": {
+      "eqeqeq": [
+        2,
+        "allow-null"
+      ],
+      "no-unused-vars": [
+        1,
+        {
+          "vars": "local",
+          "args": "none"
+        }
+      ],
+      "no-console": 0
+    },
+    "env": {
+      "browser": true,
+      "node": true
+    }
+  },
+  "files": [
+    "dist/"
+  ]
+}
