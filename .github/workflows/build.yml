@@ -5,19 +5,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2.2.2
-
-      - uses: actions/setup-node@v4
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
         with:
-          node-version: 20.17.0
-          cache: true
+          version: 10 # Optional: specify a version or omit to use the version from package.json
 
-      - name: Install Dependencies
-        run: pnpm i
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20 # Specify the desired Node.js version
+          cache: 'pnpm' # Integrates with the pnpm cache set up in the previous step
 
-      - name: Build Project
-        run: pnpm run build
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run build
+        run: pnpm build
+
+      - name: Run tests
+        run: pnpm test
