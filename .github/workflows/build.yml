@@ -25,8 +25,13 @@ jobs:
       - name: Run build
         run: pnpm build
 
-      - name: Commit build artifacts
+      - name: Create Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACTIONS_TOKEN }}
         run: |
-          git add dist
-          git commit -m "Build: Update dist folder" || echo "No changes to commit"
-          git push
+          VERSION=$(node -p "require('./package.json').version")
+          git tag "v$VERSION"
+          git push origin "v$VERSION"
+          gh release create "v$VERSION" \
+            --title "Release v$VERSION" \
+            --notes "Automated release for version $VERSION"
