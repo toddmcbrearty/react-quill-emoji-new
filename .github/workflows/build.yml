@@ -30,6 +30,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GIT_HUB_TOKEN }}
         run: |
           VERSION=$(node -p "require('./package.json').version")
+          git config user.name toddmcbrearty
           git tag "v$VERSION"
           git push origin "v$VERSION"
           gh release create "v$VERSION" \
