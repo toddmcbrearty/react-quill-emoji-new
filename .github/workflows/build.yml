@@ -5,9 +5,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.2.2
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20.17.0
-      - run: pnpm i
-      - run: pnpm run build
+          cache: true
+
+      - name: Install Dependencies
+        run: pnpm i
+
+      - name: Build Project
+        run: pnpm run build
