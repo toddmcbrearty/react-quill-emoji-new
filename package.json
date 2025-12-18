@@ -1,6 +1,5 @@
 {
   "name": "react-quill-emoji-new",
-  "private": true,
   "version": "0.0.10",
   "description": "React Quill Extension for Emoji Selection. Forked from react-quill-emoji",
   "main": "dist/quill-emoji.js",
