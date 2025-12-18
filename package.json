@@ -61,5 +61,8 @@
       "browser": true,
       "node": true
     }
-  }
+  },
+  "files": [
+    "dist/"
+  ]
 }
